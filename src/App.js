@@ -1,5 +1,9 @@
-import React, { useEffect } from "react";
+/* eslint-disable */
+import { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./styles.css";
+import Nominations from "./nominations";
+import Consent from "./consent";
 
 export default function App() {
   useEffect(() => {
@@ -164,68 +168,102 @@ export default function App() {
   }, []);
 
   return (
-    <>
+    <Router>
       <header id="header">
         <div className="container">
           <div className="logo">
-            <a href="#hero">
+            <Link to="/">
               <img
                 src="https://vishal-sanjivini.s3.ap-south-1.amazonaws.com/assets/img/logo-green-gold.png"
                 alt="Vishal Sanjivini Logo"
               />
-            </a>
+            </Link>
           </div>
 
           <nav id="navbar">
             <ul>
-              <li><a href="#hero">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#amenities">Amenities</a></li>
-              <li><a href="#gallery">Gallery</a></li>
-              <li><a href="#contact">Contact</a></li>
-              <li><a href="./downloads/index.html">Downloads</a></li>
-              <li><a href="./elections/index.html">Elections</a></li>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <a href="#about">About</a>
+              </li>
+              {/* <li>
+                <a href="#amenities">Amenities</a>
+              </li>
+              <li>
+                <a href="#gallery">Gallery</a>
+              </li>
+              <li>
+                <a href="#contact">Contact</a>
+              </li> */}
+              <li>
+                <a href="./downloads/index.html">Downloads</a>
+              </li>
+              <li>
+                <a href="./elections/index.html">Elections</a>
+              </li>
+              <li>
+                <Link to="/nominations">Nomination</Link>
+              </li>
+              <li>
+                <Link to="/consent">Consent</Link>
+              </li>
             </ul>
           </nav>
         </div>
       </header>
 
-      {/* HERO SECTION */}
-      <section id="hero">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-6">
-              <h1>Welcome to Vishal Sanjivini Home Owners Association</h1>
-              <h2>Upscale gated villa community in Tukkuguda, Hyderabad.</h2>
-              <div>
-                <a href="#about">Know More</a>
-              </div>
-            </div>
-            <div className="col-lg-6">
-              <div className="project-statellite">
-                <img
-                  src="https://vishal-sanjivini.s3.ap-south-1.amazonaws.com/assets/img/vishal-projects-satellite.png"
-                  alt="Vishal Sanjivini Villas satellite view"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ABOUT SECTION */}
-      <main id="main">
-        <section id="about">
-          <div className="container">
-            <div className="section-title">
-              <h2>About Vishal Sanjivini</h2>
-            </div>
-            {/* Content omitted for brevity — copy from HTML as JSX */}
-          </div>
-        </section>
-
-        {/* You can continue similarly for amenities, gallery, contact, footer, etc. */}
-      </main>
-    </>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              {/* HERO SECTION */}
+              <section id="hero">
+                <div className="container">
+                  <div className="row">
+                    <div className="col-lg-6">
+                      <h1>
+                        Welcome to Vishal Sanjivini Home Owners Association
+                      </h1>
+                      <h2>
+                        Upscale gated villa community in Tukkuguda, Hyderabad.
+                      </h2>
+                      <div>
+                        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                        <a href="#about">Know More</a>
+                      </div>
+                    </div>
+                    <div className="col-lg-6">
+                      <div className="project-statellite">
+                        <img
+                          src="https://vishal-sanjivini.s3.ap-south-1.amazonaws.com/assets/img/vishal-projects-satellite.png"
+                          alt="Vishal Sanjivini Villas satellite view"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              {/* ABOUT SECTION */}
+              <main id="main">
+                <section id="about">
+                  <div className="container">
+                    <div className="section-title">
+                      <h2>About Vishal Sanjivini</h2>
+                    </div>
+                    {/* Content omitted for brevity — copy from HTML as JSX */}
+                  </div>
+                </section>
+                {/* You can continue similarly for amenities, gallery, contact, footer, etc. */}
+              </main>
+            </>
+          }
+        />
+        <Route path="/nominations" element={<Nominations />} />
+        <Route path="/consent" element={<Consent />} />
+      </Routes>
+    </Router>
   );
 }
