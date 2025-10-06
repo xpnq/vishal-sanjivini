@@ -1,7 +1,4 @@
 import React, { useState } from "react";
-// AWS SDK imports
-import { S3Client } from "@aws-sdk/client-s3";
-import { Upload } from "@aws-sdk/lib-storage";
 
 export default function Consent() {
   const [form, setForm] = useState({
@@ -12,17 +9,7 @@ export default function Consent() {
   });
   const [emailError, setEmailError] = useState("");
   const [uploading, setUploading] = useState(false);
-
-  // AWS S3 config (replace with your values)
-  const REGION = "YOUR_AWS_REGION";
-  const BUCKET = "YOUR_BUCKET_NAME";
-  const s3 = new S3Client({
-    region: REGION,
-    credentials: {
-      accessKeyId: "YOUR_ACCESS_KEY_ID",
-      secretAccessKey: "YOUR_SECRET_ACCESS_KEY",
-    },
-  });
+  const [errorMsg, setErrorMsg] = useState("");
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -36,26 +23,33 @@ export default function Consent() {
     }));
   };
 
+  const REGION = process.env.REACT_APP_AWS_REGION;
+  const BUCKET = process.env.REACT_APP_AWS_BUCKET;
+
   const uploadToS3 = async (folderName, file) => {
-    // Save file as VillaNumber_Consent.ext
+    // Save file as consent/folderName/VillaNumber_Consent.ext
     const ext = file.name.split('.').pop();
-    const key = `${folderName}/${form.villaNumber}_Consent.${ext}`;
-    const uploader = new Upload({
-      client: s3,
-      params: {
-        Bucket: BUCKET,
-        Key: key,
-        Body: file,
-        ContentType: file.type,
+    const fileName = `consent/${folderName}/${form.villaNumber}_Consent.${ext}`;
+    const s3Url = `https://${BUCKET}.s3.${REGION}.amazonaws.com/${fileName}`;
+
+    // Try to PUT directly to S3 (will only work if bucket allows public PUT, which is NOT recommended for production)
+    const uploadResp = await fetch(s3Url, {
+      method: "PUT",
+      headers: {
+        "Content-Type": file.type,
       },
+      body: file,
     });
-    await uploader.done();
+    if (!uploadResp.ok) {
+      throw new Error("File upload to S3 failed. Make sure your bucket policy allows public PUT for testing only.");
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setErrorMsg("");
     if (!form.name || !form.villaNumber || !form.email || !form.file) {
-      alert("Please fill all mandatory fields and upload the document.");
+      setErrorMsg("Please fill all mandatory fields and upload the document.");
       return;
     }
     setUploading(true);
@@ -64,7 +58,17 @@ export default function Consent() {
       await uploadToS3(folderName, form.file);
       alert("Consent submitted and uploaded to S3!");
     } catch (err) {
-      alert("Upload failed: " + err.message);
+      let msg = "Upload failed. ";
+      if (err.name === "CredentialsProviderError" || err.name === "UnrecognizedClientException") {
+        msg += "Invalid AWS credentials or configuration.";
+      } else if (err.name === "NoSuchBucket") {
+        msg += "Bucket does not exist.";
+      } else if (err.message) {
+        msg += err.message;
+      } else {
+        msg += "Unknown error occurred.";
+      }
+      setErrorMsg(msg);
     }
     setUploading(false);
   };
@@ -94,6 +98,11 @@ export default function Consent() {
           Download Consent Form
         </a>
       </div>
+      {errorMsg && (
+        <div style={{ color: "red", marginBottom: "16px", fontWeight: "bold" }}>
+          {errorMsg}
+        </div>
+      )}
       <form onSubmit={handleSubmit}>
         <div style={{ marginBottom: 16 }}>
           <label htmlFor="name">
@@ -107,7 +116,7 @@ export default function Consent() {
             value={form.name}
             onChange={handleChange}
             required
-            style={{ width: "100%", padding: 8 }}
+            style={{ width: "100%", padding: "8px" }}
           />
         </div>
         <div style={{ marginBottom: 16 }}>
@@ -122,7 +131,7 @@ export default function Consent() {
             value={form.villaNumber}
             onChange={handleChange}
             required
-            style={{ width: "100%", padding: 8 }}
+            style={{ width: "100%", padding:  "8px"}}
           />
         </div>
         <div style={{ marginBottom: 16 }}>
@@ -137,7 +146,7 @@ export default function Consent() {
             value={form.email}
             onChange={handleChange}
             required
-            style={{ width: "100%", padding: 8 }}
+            style={{ width: "100%", padding: "8px" }}
           />
           {emailError && (
             <span style={{ color: "red", fontSize: 13 }}>{emailError}</span>
