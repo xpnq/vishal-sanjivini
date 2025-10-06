@@ -75,7 +75,7 @@ export default function Consent() {
 
   return (
     <div className="container" style={{ maxWidth: 600, margin: "60px auto 40px auto", paddingTop: "40px" }}>
-      <h2>Consent Submission</h2>
+      <h1  className="docs-container">Consent Submission</h1>
       <div style={{ marginBottom: "24px" }}>
         <p>
           Please submit your consent by signing and uploading the form below. All fields and the consent document are mandatory.

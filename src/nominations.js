@@ -90,7 +90,7 @@ export default function Nominations() {
   return (
     <div className="container" style={{ maxWidth: 600, margin: "60px auto 40px auto" }}>
       <div style={{ paddingTop: 40, marginBottom: 24 }}>
-        <h2>Nomination Submission</h2>
+        <h1 className="docs-container">Nomination Submission</h1>
         <p>Please fill out the nomination form below. Ensure all mandatory fields and documents are provided.</p>
         <p>Download and print the official nomination form before uploading:</p>
         <a

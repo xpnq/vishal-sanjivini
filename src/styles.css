@@ -838,6 +838,12 @@ section {
     }
 }
 
+.docs-container h1 {
+  color: #b6862e;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
 /* Basic resets */
 *, *::before, *::after {
     box-sizing: border-box;
