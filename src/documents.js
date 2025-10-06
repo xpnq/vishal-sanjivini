@@ -1,5 +1,5 @@
 import React from "react";
-import "./documents.css"; // separate styling file
+import "./styles/documents.css"; // separate styling file
 
 const ElectionDocuments = () => {
   const documents = [
@@ -18,8 +18,8 @@ const ElectionDocuments = () => {
   ];
 
   return (
-    <div className="docs-container" style={{ maxWidth: 600, margin: "60px auto 40px auto", padding: "20px" }}>
-      <h1>Vishal Sanjivini</h1>
+    <div className="docs-container" style={{ maxWidth: 600, margin: "60px auto 40px auto", padding: "40px" }}>
+      <h2>Project Documents </h2>
       <p className="sub">General documents related to the project.</p>
 
       <table id="customers">

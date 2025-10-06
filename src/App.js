@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import "./styles.css";
+import "./styles/main.css";
 import Nominations from "./nominations";
 import Consent from "./consent";
 import ElectionDocuments from "./documents";
@@ -10,37 +10,37 @@ export default function App() {
   useEffect(() => {
     // --- COUNTER ANIMATION ---
     const counters = document.querySelectorAll("#counts .count-number");
-    if (counters.length) {
-      const start = () => {
-        counters.forEach((counter) => {
-          const target = parseInt(counter.getAttribute("data-target"), 10) || 0;
-          const duration = 1200;
-          const startTs = performance.now();
+    if (!counters.length) return;
 
-          const tick = (now) => {
-            const progress = Math.min((now - startTs) / duration, 1);
-            const value = Math.floor(progress * target);
-            counter.textContent = value.toLocaleString();
-            if (progress < 1) requestAnimationFrame(tick);
-            else counter.textContent = target.toLocaleString();
-          };
-          requestAnimationFrame(tick);
-        });
-      };
+    const animateCounters = () => {
+      counters.forEach((counter) => {
+        const target = parseInt(counter.getAttribute("data-target"), 10) || 0;
+        const duration = 1200;
+        const startTs = performance.now();
 
-      if ("IntersectionObserver" in window) {
-        const observer = new IntersectionObserver(
-          (entries) => {
-            if (entries.some((e) => e.isIntersecting)) {
-              start();
-              observer.disconnect();
-            }
-          },
-          { threshold: 0.2 }
-        );
-        observer.observe(document.querySelector("#counts"));
-      } else start();
-    }
+        const tick = (now) => {
+          const progress = Math.min((now - startTs) / duration, 1);
+          const value = Math.floor(progress * target);
+          counter.textContent = value.toLocaleString();
+
+          if (progress < 1) {
+            requestAnimationFrame(tick);
+          } else {
+            counter.textContent = target.toLocaleString();
+          }
+        };
+
+        requestAnimationFrame(tick);
+      });
+    };
+
+    // ✅ Wait a short time to ensure DOM is ready
+   
+
+
+
+
+     
 
     // --- GALLERY SLIDER ---
     const slider = document.querySelector("#gallery .gallery-slider");
@@ -166,6 +166,9 @@ export default function App() {
     });
 
     start();
+     const timeout = setTimeout(animateCounters, 300);
+
+    return () => clearTimeout(timeout);
   }, []);
 
   return (
@@ -201,9 +204,9 @@ export default function App() {
               <li>
                 <Link to="/documents">Documents</Link>
               </li>
-              <li>
+              {/* <li>
                 <a href="./elections/index.html">Elections</a>
-              </li>
+              </li> */}
               <li>
                 <Link to="/nominations">Nomination</Link>
               </li>
