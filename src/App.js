@@ -507,6 +507,9 @@ export default function App() {
               <Link to="/documents" onClick={() => setMenuOpen(false)}>Documents</Link>
               <Link to="/nominations" onClick={() => setMenuOpen(false)}>Nomination</Link>
               <Link to="/consent" onClick={() => setMenuOpen(false)}>Consent</Link>
+              <a href="#">By-laws</a>
+              <a href="#">Meeting Minutes</a>
+              <a href="#">Notices</a>
               <a href="#terms" onClick={(e) => handleScroll(e, "#terms")}>Terms of Use</a>
               <a href="#privacy" onClick={(e) => handleScroll(e, "#privacy")}>Privacy Policy</a>
             </nav>
