@@ -2,9 +2,11 @@
 import { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./styles/main.css";
+import Footer from "./footer";
 import Nominations from "./nominations";
 import Consent from "./consent";
-import ElectionDocuments from "./documents";
+import ElectionDocuments from "./elections";
+import GeneralDocuments from "./documents";
 
 export default function App() {
   useEffect(() => {
@@ -189,10 +191,11 @@ export default function App() {
               <li>
                 <Link to="/">Home</Link>
               </li>
+              {/*
               <li>
                 <a href="#about">About</a>
               </li>
-              {/* <li>
+              <li>
                 <a href="#amenities">Amenities</a>
               </li>
               <li>
@@ -204,9 +207,9 @@ export default function App() {
               <li>
                 <Link to="/documents">Documents</Link>
               </li>
-              {/* <li>
-                <a href="./elections/index.html">Elections</a>
-              </li> */}
+              <li>
+                <a href="/elections">Elections</a>
+              </li>
               <li>
                 <Link to="/nominations">Nomination</Link>
               </li>
@@ -252,7 +255,7 @@ export default function App() {
               </section>
               {/* ABOUT SECTION */}
               <main id="main">
-                   {/* ======= ABOUT SECTION ======= */}
+      {/* ======= ABOUT SECTION ======= */}
       <section id="about">
         <div className="container">
           <div className="section-title">
@@ -493,6 +496,7 @@ export default function App() {
           </div>
         </div>
       </section>
+      <Footer />
                 {/* You can continue similarly for amenities, gallery, contact, footer, etc. */}
               </main>
             </>
@@ -500,7 +504,9 @@ export default function App() {
         />
         <Route path="/nominations" element={<Nominations />} />
         <Route path="/consent" element={<Consent />} />
-        <Route path="/documents" element={<ElectionDocuments />} />
+        <Route path="/documents" element={<GeneralDocuments />} />
+        <Route path="/elections" element={<ElectionDocuments />} />
+  
       </Routes>
     </Router>
   );
