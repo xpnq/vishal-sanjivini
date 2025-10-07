@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./styles/main.css";
 import Nominations from "./nominations";
@@ -7,6 +7,8 @@ import Consent from "./consent";
 import ElectionDocuments from "./documents";
 
 export default function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   useEffect(() => {
     // --- COUNTER ANIMATION ---
     const counters = document.querySelectorAll("#counts .count-number");
@@ -33,14 +35,6 @@ export default function App() {
         requestAnimationFrame(tick);
       });
     };
-
-    // ✅ Wait a short time to ensure DOM is ready
-   
-
-
-
-
-     
 
     // --- GALLERY SLIDER ---
     const slider = document.querySelector("#gallery .gallery-slider");
@@ -166,7 +160,7 @@ export default function App() {
     });
 
     start();
-     const timeout = setTimeout(animateCounters, 300);
+    const timeout = setTimeout(animateCounters, 300);
 
     return () => clearTimeout(timeout);
   }, []);
@@ -184,42 +178,32 @@ export default function App() {
             </Link>
           </div>
 
-          <nav id="navbar">
+          {/* --- Hamburger Button --- */}
+          <button
+            className={`menu-toggle ${menuOpen ? "active" : ""}`}
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle navigation"
+          >
+            <span className="bar"></span>
+            <span className="bar"></span>
+            <span className="bar"></span>
+          </button>
+
+          {/* --- Navigation --- */}
+          <nav id="navbar" className={menuOpen ? "open" : ""}>
             <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <a href="#about">About</a>
-              </li>
-              {/* <li>
-                <a href="#amenities">Amenities</a>
-              </li>
-              <li>
-                <a href="#gallery">Gallery</a>
-              </li>
-              <li>
-                <a href="#contact">Contact</a>
-              </li> */}
-              <li>
-                <Link to="/documents">Documents</Link>
-              </li>
-              {/* <li>
-                <a href="./elections/index.html">Elections</a>
-              </li> */}
-              <li>
-                <Link to="/nominations">Nomination</Link>
-              </li>
-              <li>
-                <Link to="/consent">Consent</Link>
-              </li>
+              <li><Link to="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
+              <li><a href="#about" onClick={() => setMenuOpen(false)}>About</a></li>
+              <li><Link to="/documents" onClick={() => setMenuOpen(false)}>Documents</Link></li>
+              <li><Link to="/nominations" onClick={() => setMenuOpen(false)}>Nomination</Link></li>
+              <li><Link to="/consent" onClick={() => setMenuOpen(false)}>Consent</Link></li>
             </ul>
           </nav>
         </div>
       </header>
 
       <Routes>
-        <Route
+          <Route
           path="/"
           element={
             <>
@@ -493,7 +477,7 @@ export default function App() {
           </div>
         </div>
       </section>
-                {/* You can continue similarly for amenities, gallery, contact, footer, etc. */}
+               
               </main>
             </>
           }
@@ -502,6 +486,32 @@ export default function App() {
         <Route path="/consent" element={<Consent />} />
         <Route path="/documents" element={<ElectionDocuments />} />
       </Routes>
+        {/* --- FOOTER --- */}
+      <footer id="footer">
+        <div className="container">
+          <div className="footer-top">
+            <nav className="footer-links">
+              <Link to="/">Home</Link>
+              <a href="#about">About</a>
+              <Link to="/documents" onClick={() => setMenuOpen(false)}>Documents</Link>
+              <Link to="/nominations" onClick={() => setMenuOpen(false)}>Nomination</Link>
+              <Link to="/consent" onClick={() => setMenuOpen(false)}>Consent</Link>
+              <a href="#terms">Terms of Use</a>
+              <a href="#privacy">Privacy Policy</a>
+            </nav>
+          </div>
+
+          <div className="footer-bottom">
+            <div className="copyright">
+              <strong>&copy; Vishal Sanjivini Home Owners Association</strong>.
+            </div>
+            <div className="credits">@ VSHOA 2025</div>
+            <p>
+              Website content created and maintained by the Vishal Sanjivini Home Owners Association(Shashi & Ravi).
+            </p>
+          </div>
+        </div>
+      </footer>
     </Router>
   );
 }
