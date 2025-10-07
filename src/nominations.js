@@ -1,5 +1,6 @@
 /* eslint-disable */
 import { useState } from "react";
+import Popup from "./popup";
 
 const FILE_FIELDS = [
   { name: "nominationForm", label: "Nomination Form" },
@@ -16,6 +17,7 @@ export default function Nominations() {
     saleDeedCopy: null,
     adharCard: null,
   });
+  const [popup, setPopup] = useState(null);
   const [uploading, setUploading] = useState(false);
 
   const REGION = process.env.REACT_APP_AWS_REGION;
@@ -64,7 +66,12 @@ export default function Nominations() {
       .filter(field => !form[field]);
 
     if (missingFields.length) {
-      alert("Please fill all mandatory fields and upload all required documents.");
+      setPopup({
+        message:
+          "Please fill all mandatory fields and upload all required documents.",
+        type: "error",
+      });
+     
       return;
     }
 
@@ -74,9 +81,15 @@ export default function Nominations() {
       for (const fileField of FILE_FIELDS) {
         await uploadToS3(fileField.name, form[fileField.name], fileField.label);
       }
-      alert("Nomination submitted and files uploaded successfully!");
+      setPopup({
+        message:
+          `${form.name} (Villa ${form.villaNumber}) your nomination form has been submitted! All files were uploaded successfully. Thank you!`,
+        type: "success",
+      });
     } catch (err) {
-      alert("Upload failed: " + err.message);
+       let msg = "Upload failed. ";
+      msg += err.message || "Unknown error occurred.";
+      setPopup({ message: msg, type: "error" });
     }
 
     setUploading(false);
@@ -180,6 +193,13 @@ export default function Nominations() {
           {uploading ? "Uploading..." : "Submit"}
         </button>
       </form>
+
+         {popup && (
+        <Popup
+          message={popup.message}
+          type={popup.type}
+          onClose={() => setPopup(null)}
+        />  )}
     </div>
   );
 }

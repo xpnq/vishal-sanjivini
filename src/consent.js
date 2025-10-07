@@ -1,5 +1,7 @@
 /* eslint-disable */
 import React, { useState } from "react";
+import Popup from "./popup";
+import { Form } from "react-router-dom";
 
 export default function Consent() {
   const [form, setForm] = useState({
@@ -7,7 +9,7 @@ export default function Consent() {
     villaNumber: "",
     file: null,
   });
-
+  const [popup, setPopup] = useState(null);
   const [uploading, setUploading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -54,7 +56,12 @@ export default function Consent() {
     try {
       const folderName = form.name.replace(/\s+/g, "_");
       await uploadToS3(folderName, form.file);
-      alert("Consent submitted and uploaded to S3 successfully!");
+       setPopup({
+        message:
+          `${form.name} (Villa ${form.villaNumber}) your consent form has been submitted! All files were uploaded successfully. Thank you`,
+        type: "success",
+      });
+     
     } catch (err) {
       let msg = "Upload failed. ";
       if (err.message) msg += err.message;
@@ -153,11 +160,18 @@ export default function Consent() {
             color: "#fff",
             border: "none",
             borderRadius: 4,
+            cursor:"pointer"
           }}
         >
           {uploading ? "Uploading..." : "Submit"}
         </button>
       </form>
+         {popup && (
+        <Popup
+          message={popup.message}
+          type={popup.type}
+          onClose={() => setPopup(null)}
+        />  )}
     </div>
   );
 }
