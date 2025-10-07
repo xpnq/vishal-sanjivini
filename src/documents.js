@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles/documents.css"; // separate styling file
 
-const ElectionDocuments = () => {
+const GeneralDocuments = () => {
   const documents = [
     {
       name: "RERA Certificate 1",
@@ -51,4 +51,4 @@ const ElectionDocuments = () => {
   );
 };
 
-export default ElectionDocuments;
+export default GeneralDocuments;

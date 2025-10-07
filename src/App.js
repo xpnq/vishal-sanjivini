@@ -2,9 +2,11 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./styles/main.css";
+import Footer from "./footer";
 import Nominations from "./nominations";
 import Consent from "./consent";
-import ElectionDocuments from "./documents";
+import ElectionDocuments from "./elections";
+import GeneralDocuments from "./documents";
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -236,7 +238,7 @@ export default function App() {
               </section>
               {/* ABOUT SECTION */}
               <main id="main">
-                   {/* ======= ABOUT SECTION ======= */}
+      {/* ======= ABOUT SECTION ======= */}
       <section id="about">
         <div className="container">
           <div className="section-title">
@@ -478,13 +480,17 @@ export default function App() {
         </div>
       </section>
                
+      <Footer />
+                {/* You can continue similarly for amenities, gallery, contact, footer, etc. */}
               </main>
             </>
           }
         />
         <Route path="/nominations" element={<Nominations />} />
         <Route path="/consent" element={<Consent />} />
-        <Route path="/documents" element={<ElectionDocuments />} />
+        <Route path="/documents" element={<GeneralDocuments />} />
+        <Route path="/elections" element={<ElectionDocuments />} />
+  
       </Routes>
         {/* --- FOOTER --- */}
       <footer id="footer">
