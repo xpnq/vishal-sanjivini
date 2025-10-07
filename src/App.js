@@ -208,7 +208,7 @@ export default function App() {
                 <Link to="/documents">Documents</Link>
               </li>
               <li>
-                <Link href="/elections">Elections</Link>
+                <Link to="/elections">Elections</Link>
               </li>
               <li>
                 <Link to="/nominations">Nomination</Link>
