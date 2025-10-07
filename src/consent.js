@@ -78,7 +78,7 @@ export default function Consent() {
         </p>
         <p>Download and print the official consent form before uploading:</p>
         <a
-          href="https://vishal-sanjivini.s3.ap-south-1.amazonaws.com/assets/ConsentForm.pdf"
+          href="https://vishal-sanjivini.s3.ap-south-1.amazonaws.com/assets/docs/consent.pdf"
           target="_blank"
           rel="noopener noreferrer"
           style={{

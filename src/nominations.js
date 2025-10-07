@@ -89,7 +89,7 @@ export default function Nominations() {
         <p>Please fill out the nomination form below. Ensure all mandatory fields and documents are provided.</p>
         <p>Download and print the official nomination form before uploading:</p>
         <a
-          href="https://vishal-sanjivini.s3.ap-south-1.amazonaws.com/assets/NominationForm.pdf"
+          href="https://vishal-sanjivini.s3.ap-south-1.amazonaws.com/assets/docs/nomination-ack-form.pdf"
           target="_blank"
           rel="noopener noreferrer"
           style={{

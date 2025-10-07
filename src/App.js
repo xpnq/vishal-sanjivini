@@ -167,6 +167,7 @@ export default function App() {
     });
 
     start();
+    animateCounters();
     const timeout = setTimeout(animateCounters, 300);
 
     return () => clearTimeout(timeout);
@@ -201,6 +202,7 @@ export default function App() {
             <ul>
               <li><Link to="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
               <li><a href="#about" onClick={() => setMenuOpen(false)}>About</a></li>
+              <li><Link to="/elections" onClick={() => setMenuOpen(false)}>Election</Link></li>
               <li><Link to="/documents" onClick={() => setMenuOpen(false)}>Documents</Link></li>
               <li><Link to="/nominations" onClick={() => setMenuOpen(false)}>Nomination</Link></li>
               <li><Link to="/consent" onClick={() => setMenuOpen(false)}>Consent</Link></li>
@@ -505,6 +507,7 @@ export default function App() {
               <Link to="/">Home</Link>
               <a href="#about" onClick={(e) => handleScroll(e, "#about")}>About</a>
               <Link to="/documents" onClick={() => setMenuOpen(false)}>Documents</Link>
+              <Link to="/elections" onClick={() => setMenuOpen(false)}>Election</Link>
               <Link to="/nominations" onClick={() => setMenuOpen(false)}>Nomination</Link>
               <Link to="/consent" onClick={() => setMenuOpen(false)}>Consent</Link>
               <a href="#">By-laws</a>
