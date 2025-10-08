@@ -247,7 +247,7 @@ export default function Home() {
                       <div className="col-lg-12">
                         <div className="map-responsive">
                           <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15257.653609804823!2d78.43572836245963!3d17.206456073177898!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcbb584852934ff%3A0x67341851e390c52a!2sTukkuguda%2C%20Hyderabad%2C%20Telangana%20500097!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3811.514503679088!2d78.48861699999999!3d17.193812299999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcba500147f46ad%3A0xdf0f101c1018020d!2sVishal%20Sanjivini%20Home%20owners%20association!5e0!3m2!1sen!2sin!4v1759897283163!5m2!1sen!2sin"
                             width="100%"
                             height="450"
                             style={{ border: 0 }}
@@ -288,7 +288,7 @@ export default function Home() {
                           <h3>Association Office</h3>
                           <p>
                             <b>Vishal Sanjivini Home Owners Association</b><br />
-                            Tukkuguda, Hyderabad - 501359
+                            Community Hall, Vishal Sanjivini, Tukkuguda, Hyderabad - 501359
                           </p>
                           <p>
                             For general inquiries: <br />
