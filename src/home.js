@@ -59,9 +59,9 @@ export default function Home() {
               <section id="hero">
                 <div className="container">
                   <div className="row">
-                    <div className="col-lg-6">
+                    <div className="col-lg-12">
                       <h1>
-                        Welcome to Vishal Sanjivini Home Owners Association
+                        Welcome to Vishal Sanjivini Home Owners Group
                       </h1>
                       <h2>
                         Upscale gated villa community in Tukkuguda, Hyderabad.
@@ -69,14 +69,6 @@ export default function Home() {
                       <div>
                         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                         <a href="#about">Know More</a>
-                      </div>
-                    </div>
-                    <div className="col-lg-6">
-                      <div className="project-statellite">
-                        <img
-                          src="https://vishal-sanjivini.s3.ap-south-1.amazonaws.com/assets/img/vishal-projects-satellite1.png"
-                          alt="Vishal Sanjivini Villas satellite view"
-                        />
                       </div>
                     </div>
                   </div>
@@ -120,9 +112,9 @@ export default function Home() {
                           <li>High ratings by residents for connectivity, cleanliness, amenities, and neighborhood ambience.</li>
                         </ul>
 
-                        <h3>About the Home Owners Association</h3>
+                        <h3>About the Home Owners Group</h3>
                         <p>
-                          The Vishal Sanjivini Home Owners Association (HOA) holds the mission of fostering a safe,
+                          The Vishal Sanjivini Home Owners Group (HOA) holds the mission of fostering a safe,
                           vibrant, and welcoming community for all residents. The HOA collaborates with homeowners to
                           maintain community standards, manage common amenities, organize events, and represent the
                           collective interests of all property owners within Vishal Sanjivini.
@@ -214,15 +206,11 @@ export default function Home() {
                       <div className="gallery-track">
                         <div className="gallery-slides">
                           {[
-                            "east-elevation.jpg",
-                            "west-elevation.jpg",
-                            "east-elevation-1.jpg",
-                            "west-elevation-1.jpg",
-                            "samaja.webp"
+
                           ].map((img, i) => (
                             <div className="gallery-slide" key={i}>
                               <img
-                                src={`https://vishal-sanjivini.s3.ap-south-1.amazonaws.com/assets/imgs/${img}`}
+                                src={`https://vishal-sanjivini.s3.ap-south-1.amazonaws.com/assets/img/${img}`}
                                 alt={`Gallery ${i + 1}`}
                               />
                             </div>
@@ -247,7 +235,7 @@ export default function Home() {
                       <div className="col-lg-12">
                         <div className="map-responsive">
                           <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3811.514503679088!2d78.48861699999999!3d17.193812299999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcba500147f46ad%3A0xdf0f101c1018020d!2sVishal%20Sanjivini%20Home%20owners%20association!5e0!3m2!1sen!2sin!4v1759897283163!5m2!1sen!2sin"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3811.514503679088!2d78.48861699999999!3d17.193812299999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcba500147f46ad%3A0xdf0f101c1018020d!2sVishal%20Sanjivini%20Home%20owners%20Group!5e0!3m2!1sen!2sin!4v1759897283163!5m2!1sen!2sin"
                             width="100%"
                             height="450"
                             style={{ border: 0 }}
@@ -285,9 +273,9 @@ export default function Home() {
                     <div className="row">
                       <div className="col-lg-6">
                         <div className="contact-about">
-                          <h3>Association Office</h3>
+                          <h3>Group Office</h3>
                           <p>
-                            <b>Vishal Sanjivini Home Owners Association</b><br />
+                            <b>Vishal Sanjivini Home Owners Group</b><br />
                             Community Hall, Vishal Sanjivini, Tukkuguda, Hyderabad - 501359
                           </p>
                           <p>
@@ -317,7 +305,7 @@ export default function Home() {
                           </div>
                           <div>
                             <p>
-                              <b>Contact & Support:</b> For homeowner support, property management queries, maintenance requests, or to get involved with HOA activities, please reach out to the Association office or contact us via the online portal.
+                              <b>Contact & Support:</b> For homeowner support, property management queries, maintenance requests, or to get involved with HOA activities, please reach out to the Group office or contact us via the online portal.
                             </p>
                           </div>
                         </div>
