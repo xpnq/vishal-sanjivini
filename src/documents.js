@@ -10,11 +10,7 @@ const GeneralDocuments = () => {
     {
       name: "RERA Certificate 2",
       link: "https://vishal-sanjivini.s3.ap-south-1.amazonaws.com/assets/docs/reracert-1.pdf",
-    },
-    {
-      name: "Brochure",
-      link: "https://vishal-sanjivini.s3.ap-south-1.amazonaws.com/assets/docs/vishal-brochure.pdf",
-    },
+    }
   ];
 
   return (
