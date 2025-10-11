@@ -252,7 +252,7 @@ export default function App() {
             </div>
             <div className="credits">@ VSHOA 2025</div>
             <p>
-              Website content created and maintained by the Vishal Sanjivini Home Owners Association(Shashi & Ravi).
+              Website content created and maintained by the Vishal Sanjivini Home Owners Association.
             </p>
           </div>
         </div>
