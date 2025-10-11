@@ -74,7 +74,7 @@ export default function Home() {
                     <div className="col-lg-6">
                       <div className="project-statellite">
                         <img
-                          src="https://vishal-sanjivini.s3.ap-south-1.amazonaws.com/assets/img/vishal-projects-satellite.png"
+                          src="https://vishal-sanjivini.s3.ap-south-1.amazonaws.com/assets/img/vishal-projects-satellite1.png"
                           alt="Vishal Sanjivini Villas satellite view"
                         />
                       </div>
@@ -222,7 +222,7 @@ export default function Home() {
                           ].map((img, i) => (
                             <div className="gallery-slide" key={i}>
                               <img
-                                src={`https://vishal-sanjivini.s3.ap-south-1.amazonaws.com/assets/img/${img}`}
+                                src={`https://vishal-sanjivini.s3.ap-south-1.amazonaws.com/assets/imgs/${img}`}
                                 alt={`Gallery ${i + 1}`}
                               />
                             </div>
