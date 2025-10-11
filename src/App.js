@@ -233,7 +233,6 @@ export default function App() {
           <div className="footer-top">
             <nav className="footer-links">
               <Link to="/">Home</Link>
-              <a href="#about" onClick={(e) => handleScroll(e, "#about")}>About</a>
               <Link to="/documents" onClick={() => setMenuOpen(false)}>Documents</Link>
               <Link to="/elections" onClick={() => setMenuOpen(false)}>Election</Link>
               <Link to="/nominations" onClick={() => setMenuOpen(false)}>Nomination</Link>
