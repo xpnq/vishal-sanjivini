@@ -61,7 +61,7 @@ export default function Home() {
                   <div className="row">
                     <div className="col-lg-12">
                       <h1>
-                        Welcome to Vishal Sanjivini Home Owners Group
+                        Welcome to Vishal Sanjivini Home Owners Association
                       </h1>
                       <h2>
                         Upscale gated villa community in Tukkuguda, Hyderabad.
@@ -112,9 +112,9 @@ export default function Home() {
                           <li>High ratings by residents for connectivity, cleanliness, amenities, and neighborhood ambience.</li>
                         </ul>
 
-                        <h3>About the Home Owners Group</h3>
+                        <h3>About the Home Owners Association</h3>
                         <p>
-                          The Vishal Sanjivini Home Owners Group (HOA) holds the mission of fostering a safe,
+                          The Vishal Sanjivini Home Owners Association (HOA) holds the mission of fostering a safe,
                           vibrant, and welcoming community for all residents. The HOA collaborates with homeowners to
                           maintain community standards, manage common amenities, organize events, and represent the
                           collective interests of all property owners within Vishal Sanjivini.
@@ -235,7 +235,7 @@ export default function Home() {
                       <div className="col-lg-12">
                         <div className="map-responsive">
                           <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3811.514503679088!2d78.48861699999999!3d17.193812299999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcba500147f46ad%3A0xdf0f101c1018020d!2sVishal%20Sanjivini%20Home%20owners%20Group!5e0!3m2!1sen!2sin!4v1759897283163!5m2!1sen!2sin"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3811.514503679088!2d78.48861699999999!3d17.193812299999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcba500147f46ad%3A0xdf0f101c1018020d!2sVishal%20Sanjivini%20Home%20owners%20Association!5e0!3m2!1sen!2sin!4v1759897283163!5m2!1sen!2sin"
                             width="100%"
                             height="450"
                             style={{ border: 0 }}
@@ -271,44 +271,8 @@ export default function Home() {
                     </div>
 
                     <div className="row">
-                      <div className="col-lg-6">
-                        <div className="contact-about">
-                          <h3>Group Office</h3>
-                          <p>
-                            <b>Vishal Sanjivini Home Owners Group</b><br />
-                            Community Hall, Vishal Sanjivini, Tukkuguda, Hyderabad - 501359
-                          </p>
-                          <p>
-                            For general inquiries: <br />
-                            <a href="mailto:info@vishalsanjivini.in">info@vishalsanjivini.in</a>
-                          </p>
-                          <p>
-                            For maintenance related issues: <br />
-                            <a href="mailto:maintenance@vishalsanjivini.in">maintenance@vishalsanjivini.in</a>
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className="col-lg-6">
-                        <div className="info">
-                          <div>
-                            <p>Tukkuguda, Hyderabad - 501359</p>
-                          </div>
-                          <div>
-                            <p>Hotline: <a href="tel:+919999999999">9999999999</a></p>
-                          </div>
-                          <div>
-                            <p>
-                              For administrative issues:{" "}
-                              <a href="mailto:office@vishalsanjivini.in">office@vishalsanjivini.in</a>
-                            </p>
-                          </div>
-                          <div>
-                            <p>
-                              <b>Contact & Support:</b> For homeowner support, property management queries, maintenance requests, or to get involved with HOA activities, please reach out to the Group office or contact us via the online portal.
-                            </p>
-                          </div>
-                        </div>
+                      <div className="col-lg-12">
+                        <div className="contact-about">We are currently working on forming the association. Once formed, we will update the contact information here.</div>
                       </div>
                     </div>
                   </div>
