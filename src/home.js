@@ -194,7 +194,7 @@ export default function Home() {
                   </div>
                 </section>
 
-                {/* ======= GALLERY SECTION ======= */}
+                {/* ======= GALLERY SECTION ======= 
                 <section id="gallery">
                   <div className="container">
                     <div className="section-title">
@@ -221,7 +221,7 @@ export default function Home() {
                       <div className="gallery-dots" role="tablist" aria-label="Select slide"></div>
                     </div>
                   </div>
-                </section>
+                </section> *}
 
                 {/* ======= MAP VIEW SECTION ======= */}
                 <section id="map-view">
