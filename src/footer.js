@@ -6,11 +6,8 @@ const Footer = () => {
       <div className="container">
         <div className="footer-top">
           <nav className="footer-links">
-            <a href="#hero">Home</a>
-            <a href="#about">About</a>
             <a href="#">By-laws</a>
             <a href="#">Meeting Minutes</a>
-            <a href="#">Notices</a>
             <a href="#">Terms of Use</a>
             <a href="#">Privacy Policy</a>
           </nav>
@@ -18,12 +15,13 @@ const Footer = () => {
 
         <div className="footer-bottom">
           <div className="copyright">
-            <strong>&copy; Vishal Sanjivini Home Owners Association</strong>.
+            <strong>&copy; 2025 Vishal Sanjivini Homeowners Association</strong>
           </div>
-          <div className="credits">@ VSHOA 2025</div>
+          <div className="credits">
+            All rights reserved. Vishal Sanjivini Homeowners Association (VSHOA)
+          </div>
           <p>
-            Website content created and maintained by the Vishal Sanjivini Home
-            Owners Association.
+            This website is developed and maintained by the Vishal Sanjivini Homeowners Association.
           </p>
         </div>
       </div>

@@ -7,6 +7,7 @@ import Consent from "./consent";
 import ElectionDocuments from "./elections";
 import GeneralDocuments from "./documents";
 import Home from "./home";
+import Footer from "./footer";
 
 function animateCounters() {
     const counters = document.querySelectorAll("#counts .count-number");
@@ -228,34 +229,7 @@ export default function App() {
 
       </Routes>
       {/* --- FOOTER --- */}
-      <footer id="footer">
-        <div className="container">
-          <div className="footer-top">
-            <nav className="footer-links">
-              <Link to="/">Home</Link>
-              <Link to="/documents" onClick={() => setMenuOpen(false)}>Documents</Link>
-              <Link to="/elections" onClick={() => setMenuOpen(false)}>Election</Link>
-              <Link to="/nominations" onClick={() => setMenuOpen(false)}>Nomination</Link>
-              <Link to="/consent" onClick={() => setMenuOpen(false)}>Consent</Link>
-              <a href="#">By-laws</a>
-              <a href="#">Meeting Minutes</a>
-              <a href="#">Notices</a>
-              <a href="#terms" onClick={(e) => handleScroll(e, "#terms")}>Terms of Use</a>
-              <a href="#privacy" onClick={(e) => handleScroll(e, "#privacy")}>Privacy Policy</a>
-            </nav>
-          </div>
-
-          <div className="footer-bottom">
-            <div className="copyright">
-              <strong>&copy; Vishal Sanjivini Home Owners Association</strong>.
-            </div>
-            <div className="credits">@ VSHOA 2025</div>
-            <p>
-              Website content created and maintained by the Vishal Sanjivini Home Owners Association.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </Router>
   );
 }

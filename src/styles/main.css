@@ -1,4 +1,12 @@
 /* General Body and HTML styles */
+
+:root {
+    --gold: #D4AF37;
+    --gold-less-dark: #bd8c2f;
+    --gold-dark: #b6862e;
+    --gold-darker: #65500a;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -81,7 +89,7 @@ body {
 }
 
 #navbar ul li a:hover {
-  color: #2a7f62;
+  color: var(--gold-dark);
 }
 
 /* --- Hamburger Menu Button --- */
@@ -271,7 +279,7 @@ body {
 }
 
 #hero a:hover {
-    background: #D4AF37;
+    background: var(--gold-dark);
 }
 
 
@@ -321,6 +329,15 @@ section {
     line-height: 1.6;
 }
 
+#about a {
+    color: var(--gold);
+    text-decoration: none;
+}
+
+#about a:hover {
+    color: var(--gold-dark);
+}
+
 #about ul {
     list-style: none;
     padding: 0;
@@ -334,9 +351,14 @@ section {
 
 #about ul li::before {
     content: "✓"; /* Checkmark icon */
-    color: #007bff;
+    color: var(--gold);
     margin-right: 10px;
     font-weight: bold;
+}
+
+#about ul li::hover{
+    color: var(--gold);
+    text-decoration: none;
 }
 
 /* Counts Section - Using as a visual break */
@@ -647,7 +669,7 @@ section {
 .contact-about a,
 #contact .info p,
 #contact .info a {
-    color: #555;
+    color: var(--gold);
     line-height: 1.6;
     text-decoration: none;
 }
@@ -725,7 +747,7 @@ section {
 }
 
 #footer .footer-links a:hover {
-    color: #D4AF37;
+    color: var(--gold-dark);
 }
 
 
@@ -835,10 +857,6 @@ section {
 
     .portfolio-item {
         flex-basis: calc(100% - 20px); /* 1 item per row on small screens */
-    }
-
-    #navbar li:not(:last-child) {
-        border-bottom: 1px solid #eee;
     }
 }
 
