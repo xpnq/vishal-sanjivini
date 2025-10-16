@@ -2,10 +2,8 @@
 import { useEffect, useState } from "react";
 import { HashRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./styles/main.css";
-import Nominations from "./nominations";
 import Consent from "./consent";
-import ElectionDocuments from "./elections";
-import GeneralDocuments from "./documents";
+import Documents from "./documents";
 import Home from "./home";
 import Footer from "./footer";
 
@@ -211,9 +209,7 @@ export default function App() {
           <nav id="navbar" className={menuOpen ? "open" : ""}>
             <ul>
               <li><Link to="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
-              <li><Link to="/elections" onClick={() => setMenuOpen(false)}>Election</Link></li>
               <li><Link to="/documents" onClick={() => setMenuOpen(false)}>Documents</Link></li>
-              <li><Link to="/nominations" onClick={() => setMenuOpen(false)}>Nomination</Link></li>
               <li><Link to="/consent" onClick={() => setMenuOpen(false)}>Consent</Link></li>
             </ul>
           </nav>
@@ -222,11 +218,8 @@ export default function App() {
 
       <Routes>
         <Route path="/" element={<Home />}/>
-        <Route path="/nominations" element={<Nominations />} />
         <Route path="/consent" element={<Consent />} />
-        <Route path="/documents" element={<GeneralDocuments />} />
-        <Route path="/elections" element={<ElectionDocuments />} />
-
+        <Route path="/documents" element={<Documents />} />
       </Routes>
       {/* --- FOOTER --- */}
       <Footer />
